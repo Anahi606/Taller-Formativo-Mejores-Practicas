@@ -19,7 +19,7 @@ namespace Best_Practices.Models
         public string Model { get; set; }
         public double Gas { get; set; }
         public double FuelLimit { get; set; }
-        public int Year { get; set; } // Año del vehículo
+        public int Year { get; set; }
 
         #endregion
 
@@ -32,8 +32,7 @@ namespace Best_Practices.Models
             Brand = brand;
             Model = model;
             FuelLimit = fuelLimit;
-            Year = year == 0 ? DateTime.Now.Year : year; // Por defecto, año actual
-            // Aquí se pueden agregar más propiedades por defecto en el futuro
+            Year = year == 0 ? DateTime.Now.Year : year;
         }
 
         #endregion
