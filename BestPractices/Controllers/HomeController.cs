@@ -27,10 +27,11 @@ namespace Best_Practices.Controllers
         public IActionResult Index()
         {
             var model = new HomeViewModel();
-            model.Vehicles = VehicleCollection.Instance.Vehicles;
+            model.Vehicles = _vehicleRepository.GetVehicles();
             string error = Request.Query.ContainsKey("error") ? Request.Query["error"].ToString() : null;
+            string success = Request.Query.ContainsKey("success") ? Request.Query["success"].ToString() : null;
             ViewBag.ErrorMessage = error;
-
+            ViewBag.SuccessMessage = success;
             return View(model);
         }
 
@@ -40,7 +41,7 @@ namespace Best_Practices.Controllers
             var factory = new FordMustangCreator();
             var vehicle = factory.Create();
             _vehicleRepository.AddVehicle(vehicle);
-            return Redirect("/");
+            return Redirect("/?success=Mustang agregado correctamente");
         }
 
         [HttpGet]
@@ -49,7 +50,7 @@ namespace Best_Practices.Controllers
             var factory = new FordExplorerCreator();
             var vehicle = factory.Create();
             _vehicleRepository.AddVehicle(vehicle);
-            return Redirect("/");
+            return Redirect("/?success=Explorer agregado correctamente");
         }
 
         [HttpGet]
