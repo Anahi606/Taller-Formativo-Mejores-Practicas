@@ -21,6 +21,7 @@
         <th>Modelo</th>
         <th>Color</th>
         <th>Gallons</th>
+        <th>Año</th>
         <th>Status</th>
         <th>Actions</th>
         </thead>
@@ -44,6 +45,9 @@
         </td>
         <td>
             @vehicle.Gas.ToString("N1")
+        </td>
+        <td>
+            @vehicle.Year
         </td>
         <td>
             @(vehicle.IsEngineOn() ? "Encendido": "Apagado")

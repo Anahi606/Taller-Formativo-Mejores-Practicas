@@ -9,7 +9,7 @@ namespace Best_Practices.Models
     {
         public override int Tires { get => 4; }
 
-        public Car(string color, string brand, string model) : base(color, brand, model)
+        public Car(string color, string brand, string model, double fuelLimit = 10, int year = 0) : base(color, brand, model, fuelLimit, year)
         {
 
         }

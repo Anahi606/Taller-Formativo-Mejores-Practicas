@@ -11,6 +11,7 @@ namespace Best_Practices.ModelBuilders
         public string Brand = "Ford";
         public string Model = "Mustang";
         public string Color = "Red";
+        public int Year = DateTime.Now.Year; // Año actual por defecto
 
         public CarBuilder SetBrand(string brand)
         {
@@ -29,10 +30,17 @@ namespace Best_Practices.ModelBuilders
             Color = color;
             return this;
         }
+
+        public CarBuilder SetYear(int year)
+        {
+            Year = year;
+            return this;
+        }
         
         public Car Build()
         {
-            return new Car(Color, Brand, Model);
+            // Aquí se pueden agregar más propiedades por defecto en el futuro
+            return new Car(Color, Brand, Model, 10, Year);
         }
     }
 }
